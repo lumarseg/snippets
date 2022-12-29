@@ -1,3 +1,0 @@
-https://blog.devgenius.io/manage-your-private-git-branch-9f79cb7796a6
-https://blog.unelink.es/wiki/como-usar-tags-en-git/
-

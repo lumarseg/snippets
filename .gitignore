@@ -1,7 +1,7 @@
 # General
-temp/*
-.vscode/*
-.ipynb_checkpoints/*
+*/temp/
+*/.vscode/
+*/.ipynb_checkpoints/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
