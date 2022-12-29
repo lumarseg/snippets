@@ -1,0 +1,8 @@
+name: numpy-101
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - jupyter
+prefix: /home/ldmar/anaconda3/envs/numpy-101

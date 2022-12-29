@@ -1,0 +1,9 @@
+name: pandas-101
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - jupyter
+  - python=3.10
+  - numpy
+prefix: /home/ldmar/anaconda3/envs/pandas-101
