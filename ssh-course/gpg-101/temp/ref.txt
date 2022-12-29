@@ -1,0 +1,2 @@
+https://www.linux.com/news/protecting-code-integrity-pgp-part-2-generating-and-protecting-your-master-pgp-key/
+https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0

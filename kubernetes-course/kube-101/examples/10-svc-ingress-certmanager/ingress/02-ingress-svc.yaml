@@ -1,0 +1,25 @@
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: ingress-svc
+  namespace: ingress
+
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 172.16.100.142
+  selector:
+    name: nginx-ingress-microk8s
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
+
+# NOTES:
+#
+# See: https://microk8s.io/docs/addon-metallb

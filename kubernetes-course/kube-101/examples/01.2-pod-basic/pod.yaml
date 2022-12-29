@@ -1,0 +1,57 @@
+# This is a Single POD - basic.
+
+apiVersion: v1  # See NOTES (4).
+kind: Pod
+
+metadata:
+  name: api-hello-po    # Pod´s name.
+  labels:
+    app: api-hello      # Aplication Group.       
+    environment: demo   # Environment: demo, dev, qa, prod.
+    tier: backend       # Tier: backend, frontend, cache.
+    release: stable     # Release: alfa, beta, stable.
+    roll: dev           # Roll: dev, ops.
+
+spec:
+  containers:
+  - name: api-hello                     # Container´s name.
+    image: christianhxc/api-hello:1.0   # Image´s name.
+    imagePullPolicy: IfNotPresent       # See NOTES (1).
+    ports:
+    - containerPort: 8080
+    env:
+    - name: VAR_1
+      value: "foo"
+    - name: VAR_2
+      value: "bar"
+    - name: MY_POD_IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP      # Downward API, see NOTES (5).
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "200m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    readinessProbe:
+      httpGet:
+        path: /
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+        
+
+# NOTES:
+#
+# 1. Visit: https://kubernetes.io/docs/concepts/configuration/overview/#container-images
+# 2. Kubectl Resource Short-names | https://blog.heptio.com/kubectl-resource-short-names-heptioprotip-c8eff9fb7202
+# 3. Kubernetes YAML File Explained | https://www.youtube.com/watch?v=qmDzcu5uY1I
+# 4. Review Kubernetes API Overview | https://kubernetes.io/docs/reference/using-api/
+# 5. Downward API | https://kubernetes.io/docs/concepts/workloads/pods/downward-api/

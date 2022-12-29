@@ -1,0 +1,19 @@
+# This is a Single POD - minimum.
+
+apiVersion: v1  # See NOTES (4).
+kind: Pod
+
+metadata:
+  name: api-hello-po    # Pod´s name.
+
+spec:
+  containers:
+  - name: api-hello                     # Container´s name.
+    image: christianhxc/api-hello:1.0   # Image´s name.
+
+# NOTES:
+#
+# 1. Visit: https://kubernetes.io/docs/concepts/configuration/overview/#container-images
+# 2. Kubectl Resource Short-names | https://blog.heptio.com/kubectl-resource-short-names-heptioprotip-c8eff9fb7202
+# 3. Kubernetes YAML File Explained | https://www.youtube.com/watch?v=qmDzcu5uY1I
+# 4. Review Kubernetes API Overview | https://kubernetes.io/docs/reference/using-api/

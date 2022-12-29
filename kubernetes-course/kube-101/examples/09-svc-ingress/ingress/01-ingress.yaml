@@ -1,0 +1,28 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+
+metadata:
+  name: ingress-ing
+  namespace: ingress
+  labels:
+    app: ingress
+
+spec:
+  rules:
+  - host: ingress.gridger.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: api-hello-one-svc
+            port: 
+              number: 80
+      - pathType: Prefix 
+        path: "/hello"
+        backend:
+          service:
+            name: api-hello-two-svc
+            port:
+              number: 80

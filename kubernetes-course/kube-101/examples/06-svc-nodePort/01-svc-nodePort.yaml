@@ -1,0 +1,22 @@
+# This is a example of a Service: NodePort.
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: api-hello-svc
+  namespace: 00-testing
+
+spec:
+  type: NodePort
+  selector:
+    app: api-hello
+  ports:
+  - protocol: TCP
+    port: 80          # Port of the Service
+    targetPort: 8080  # Port of the Pod
+    nodePort: 30000   # Port of the Node
+
+# NOTES:
+#
+# Runs on Terminal´s Node: "curl 127.0.0.1:30000".

@@ -1,0 +1,31 @@
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: api-hello-one-svc
+  namespace: ingress
+  labels:
+    app: ingress
+
+spec:
+  type: ExternalName
+  externalName: api-hello-one-svc.00-testing.svc.cluster.local
+  ports:
+  - port: 80
+
+---
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: api-hello-two-svc
+  namespace: ingress
+  labels:
+    app: ingress
+
+spec:
+  type: ExternalName
+  externalName: api-hello-two-svc.00-testing.svc.cluster.local
+  ports:
+  - port: 80

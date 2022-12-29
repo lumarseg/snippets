@@ -1,0 +1,26 @@
+# This is a example of a Service: LoadBalancer.
+
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: api-hello-svc
+  namespace: 00-testing
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: api-hello
+  ports:
+  - protocol: TCP
+    port: 80          
+    targetPort: 8080  
+    nodePort: 30000   # This line could be unnecesary.
+
+# NOTES:
+#
+# Runs on terminal: "curl <external_ip>:80"
+#
+# In a MetallB enviroment in mocrok8s distro, install metallb:
+# - "microk8s enable metallb:<external_ip_pool_range>"
+# - Example: "microk8s enable metallb:172.16.100.140-172.16.100.150"

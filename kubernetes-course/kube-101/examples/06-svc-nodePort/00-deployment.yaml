@@ -1,0 +1,58 @@
+# Namespace Definition.
+
+kind: Namespace
+apiVersion: v1
+
+metadata:
+  name: 00-testing
+
+---
+
+# ConfigMap Definition
+
+kind: ConfigMap
+apiVersion: v1
+
+metadata:
+  name: testing-cm
+  namespace: 00-testing
+
+data:
+  db_url: mysql-service.database # <-- Example of a configuration.
+
+---
+
+# Deployment Definition.
+
+kind: Deployment
+apiVersion: apps/v1
+
+metadata:
+  name: api-hello-deploy
+  namespace: 00-testing
+  labels:
+    app: api-hello      # Aplication Group.       
+    environment: demo   # Environment: demo, dev, qa, prod.
+    tier: backend       # Tier: backend, frontend, cache.
+    release: stable     # Release: alfa, beta, stable.
+    roll: dev           # Roll: dev, ops.
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api-hello
+  template:
+    metadata:
+      labels:
+        app: api-hello
+        environment: demo
+        tier: backend
+        release: stable
+        roll: dev
+    spec:
+      containers:
+      - name: api-hello
+        image: christianhxc/api-hello:1.0
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,99 @@
+# This is a Single Deployment - Namespace definition.
+
+kind: Namespace
+apiVersion: v1
+
+metadata:
+  name: 00-testing
+
+---
+
+# Deployment Definition.
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: api-hello-deploy
+  namespace: 00-testing    # <-- Namespace binding.
+  labels:
+    app: api-hello      # Aplication Group.       
+    environment: demo   # Environment: demo, dev, qa, prod.
+    tier: backend       # Tier: backend, frontend, cache.
+    release: stable     # Release: alfa, beta, stable.
+    roll: dev           # Roll: dev, ops.
+
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: api-hello # See NOTES (6,7).
+  template:
+    metadata:
+      labels:
+        app: api-hello
+        environment: demo
+        tier: backend
+        release: stable
+        roll: dev
+    spec:
+      containers:
+      - name: api-hello                     # Container´s name.
+        image: christianhxc/api-hello:1.0   # Image´s name.
+        imagePullPolicy: IfNotPresent       # See NOTES (1).
+        ports:
+        - containerPort: 8080
+        env:
+        - name: VAR_1
+          value: "foo"
+        - name: VAR_2
+          value: "bar"
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP      # Downward API, see NOTES (5).
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "200m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+
+
+# NOTES:
+#
+# 1. Visit: https://kubernetes.io/docs/concepts/configuration/overview/#container-images
+# 2. Kubectl Resource Short-names | https://blog.heptio.com/kubectl-resource-short-names-heptioprotip-c8eff9fb7202
+# 3. Kubernetes YAML File Explained | https://www.youtube.com/watch?v=qmDzcu5uY1I
+# 4. Review Kubernetes API Overview | https://kubernetes.io/docs/reference/using-api/
+# 5. Downward API | https://kubernetes.io/docs/concepts/workloads/pods/downward-api/
+# 6. Labels and Selectors | https://kubernetes.io/es/docs/concepts/overview/working-with-objects/labels/
+# 7. Kubernetes YAML File Explained | https://www.youtube.com/watch?v=qmDzcu5uY1I&t=400s
+#
+#
+# K8s has 4 default namespaces:
+#
+# - kube-system: for system proceses.
+#
+# - kube-public: publicely accessible data like a configmap
+#   which contains cluster information. Runs on terminal: 
+#   "kubectl cluster-info"
+#
+# - kube-node-lease: hold information like heartbeats of nodes.
+#   Each node has associated lease object in namespace.
+#   Determines the availablility of a node.
+#
+# - default: resources you create are located here if a namespace is
+#   not defined.
