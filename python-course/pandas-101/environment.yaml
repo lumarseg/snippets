@@ -1,9 +1,11 @@
 name: pandas-101
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - pandas
   - jupyter
   - python=3.10
   - numpy
+  - kaggle
 prefix: /home/ldmar/anaconda3/envs/pandas-101
