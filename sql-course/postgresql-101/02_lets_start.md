@@ -2,7 +2,7 @@
 
 ## PSQL Console | Consola de PostgreSQL
 
-Compandos más utiles de la consola
+Comandos más utiles de la consola
 
 | Comando | Descripción |
 | ----- | -----|
@@ -107,7 +107,7 @@ SELECT * FROM tren;
 ```
 
 ```sql
-SELECT MD5('Este mensaje está encriptado')
+SELECT MD5('Este mensaje está encriptado');
 ```
 
 La respuesta:
