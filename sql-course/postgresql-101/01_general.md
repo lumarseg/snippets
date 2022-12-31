@@ -1,6 +1,4 @@
-# Postgresql-101a
-
-## General
+# GENERAL
 
 PostgreSQL es un sistema de gestión de bases de datos relacionales de código abierto. Fue diseñado para ser robusto, confiable y fácil de usar, y es utilizado ampliamente en muchas aplicaciones empresariales y de datos científicos.
 
