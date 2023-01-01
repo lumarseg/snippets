@@ -24,6 +24,8 @@ Repasemos el modelo relacional...
 
 <img src="img/pic1.png" width="400">
 
+Vamos a crear las tablas del modelo relaciona junto a las llaves primarias. La relaciones de las tablas (Forein Keys) lo dejaremos para un paso posterior.
+
 **Tabla #1: "stations"**
 ```sql
 CREATE TABLE public.stations
@@ -86,17 +88,7 @@ CREATE TABLE public.routes
     id_station integer NOT NULL,
     id_train integer NOT NULL,
     name_route character varying(20) NOT NULL,
-    CONSTRAINT routes_pkey PRIMARY KEY (id),
-    CONSTRAINT stations_fkey FOREIGN KEY (id_station)
-        REFERENCES public.stations (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID,
-    CONSTRAINT trains_fkey FOREIGN KEY (id_train)
-        REFERENCES public.trains (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID
+    CONSTRAINT routes_pkey PRIMARY KEY (id)
 );
 
 ALTER TABLE IF EXISTS public.routes
@@ -114,17 +106,7 @@ CREATE TABLE public.trips
     id serial NOT NULL,
     id_route integer NOT NULL,
     id_passenger integer NOT NULL,
-    CONSTRAINT trips_pkey PRIMARY KEY (id),
-    CONSTRAINT routes_fkey FOREIGN KEY (id_route)
-        REFERENCES public.routes (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID,
-    CONSTRAINT passengers_fkey FOREIGN KEY (id_passenger)
-        REFERENCES public.passengers (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        NOT VALID
+    CONSTRAINT trips_pkey PRIMARY KEY (id)
 );
 
 ALTER TABLE IF EXISTS public.trips
