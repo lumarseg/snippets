@@ -50,3 +50,9 @@ Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.
   microk8s start
   microk8s stop
 ```
+
+---
+
+## Kubernetes Components
+
+![Kubernetes Components](https://www.google.co.cr/url?sa=i&url=https%3A%2F%2Fkubernetes.io%2Fdocs%2Fconcepts%2Foverview%2Fcomponents%2F&psig=AOvVaw0JOlL8D5Spv2L0KRZckjZm&ust=1696801399641000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDluPjz5IEDFQAAAAAdAAAAABAE)
