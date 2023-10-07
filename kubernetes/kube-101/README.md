@@ -55,4 +55,4 @@ Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.
 
 ## Kubernetes Components
 
-![Kubernetes Components](https://www.google.co.cr/url?sa=i&url=https%3A%2F%2Fkubernetes.io%2Fdocs%2Fconcepts%2Foverview%2Fcomponents%2F&psig=AOvVaw0JOlL8D5Spv2L0KRZckjZm&ust=1696801399641000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDluPjz5IEDFQAAAAAdAAAAABAE)
+![Kubernetes Components](https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg)
