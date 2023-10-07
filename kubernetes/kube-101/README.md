@@ -8,6 +8,14 @@ Kubernetes Fundamentals - 101
 
 Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.com/kubernetes/install)
 
+### Docker + Kuberbetes + WSL2
+
+The easiest way to start Kubernetes at home !!! 🤓
+
+1. Install Docker Destop for Windows
+2. Select WSL2 instead of HyperV. WSL integrations requires select WSL distro in Settings / Resources / WSL integration.
+3. Enable Kubernetes in Settings / Kubernetes
+
 ### MicroK8s (Ubuntu)
 
 1. Install MicroK8s on Ubuntu Linux
