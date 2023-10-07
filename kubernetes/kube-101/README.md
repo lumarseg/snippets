@@ -2,9 +2,11 @@
 
 Kubernetes Fundamentals - 101
 
+---
+
 ## Installation
 
-[Canonical Install Kubernetes](https://ubuntu.com/kubernetes/install)
+Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.com/kubernetes/install)
 
 ### MicroK8s (Ubuntu)
 
