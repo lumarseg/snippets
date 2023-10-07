@@ -1,4 +1,11 @@
-# KUBERNETES-COURSE
+# KUBERNETES
+
+## Content
+
+* [Helm Fundamentals - 101](https://github.com/lumarseg/snippets/tree/main/kubernetes/helm-101) | Exercises, practices and examples
+* [Kubernetes Fundamentals - 101](https://github.com/lumarseg/snippets/tree/main/kubernetes/kube-101) | Exercises, practices and examples
+
+---
 
 Kubernetes (also known as K8s) is an open-source container orchestration platform that is used to automate the deployment, scaling, and management of containerized applications. It was originally developed by Google and is now maintained by the Cloud Native Computing Foundation (CNCF).
 
@@ -17,8 +24,3 @@ Kubernetes permite a los desarrolladores implementar y administrar aplicaciones 
 Una de las principales ventajas de Kubernetes es que permite a los desarrolladores abstraerse de la infraestructura subyacente y centrarse en crear e implementar sus aplicaciones. También facilita la implementación de aplicaciones en múltiples entornos, como desarrollo, preparación y producción, y la gestión del ciclo de vida de esas aplicaciones.
 
 Kubernetes se usa ampliamente en una variedad de entornos, incluida la computación en la nube, los centros de datos locales y los entornos de nube híbrida. Muchas organizaciones también lo utilizan para gestionar la implementación y el escalado de aplicaciones basadas en microservicios.
-
-## Content
-
-* kube-101: Kubernetes Fundamentals - 101
-* helm-101: Helm Fundamentals - 101
