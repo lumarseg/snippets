@@ -1,15 +1,16 @@
 # COURSES
+Welcome to my personal Software Development Courses repository on GitHub! This repository is a collection of documents, work guides, summaries, workshop notes, and code examples from various courses that I have taken in the past.
 
 ## Content
 
-* [git: Git](https://github.com/lumarseg/snippets/tree/main/git) | Guides, setup, tricks and shortcuts.
-* [kaggle: Kaggle](https://github.com/lumarseg/snippets/tree/main/kaggle) | Online platform for machine learning and data science.
-* [kuber-course: Kubernetes](https://github.com/lumarseg/snippets/tree/main/kubernetes) | Exercises, practices and examples.
-* [python: Python](https://github.com/lumarseg/snippets/tree/main/python) | Exercises, practices and examples.
-* [sql: SQL](https://github.com/lumarseg/snippets/tree/main/sql) | Exercises, practices and examples.
-* [ssh-course: SSH](https://github.com/lumarseg/snippets/tree/main/ssh) | Secure Shell & setup.
+* [Git](https://github.com/lumarseg/snippets/tree/main/git) | Guides, setup, tricks and shortcuts.
+* [Kaggle](https://github.com/lumarseg/snippets/tree/main/kaggle) | Online platform for machine learning and data science.
+* [Kubernetes](https://github.com/lumarseg/snippets/tree/main/kubernetes) | Exercises, practices and examples.
+* [Python](https://github.com/lumarseg/snippets/tree/main/python) | Exercises, practices and examples.
+* [SQL](https://github.com/lumarseg/snippets/tree/main/sql) | Exercises, practices and examples.
+* [SSH](https://github.com/lumarseg/snippets/tree/main/ssh) | Secure Shell & setup.
 
-Welcome to my personal Software Development Courses repository on GitHub! This repository is a collection of documents, work guides, summaries, workshop notes, and code examples from various courses that I have taken in the past.
+---
 
 It includes materials from different courses and workshops that I have attended, as well as personal projects that I have worked on related to the topics covered in those courses. I have created this repository with the goal of being a quick reference guide for myself and anyone else who may find it useful.
 
