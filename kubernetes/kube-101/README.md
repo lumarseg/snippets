@@ -14,6 +14,10 @@ Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.
 
 ```bash
   sudo snap install microk8s --classic
+  sudo mkdir ~/.kube
+  sudo usermod -a -G microk8s $USER
+  sudo chown -R $USER ~/.kube
+  newgrp microk8s
 ```
 
 2. Check the status while Kubernetes starts
