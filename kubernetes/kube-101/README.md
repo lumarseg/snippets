@@ -25,6 +25,7 @@ Production / Cloud hosted.
 | Infrastructure | Use case       | OS             |
 | :------------- | :------------- | :------------- |
 | `Laptops`, `Workstations` | Start learning, developers | **Linux**, **MAC**, **Windows** |
+
 **Notes:** Docker dependent (It runs VM for MAC and Windows).
 
 The easiest way to start Kubernetes at home !!! 👶
@@ -38,6 +39,7 @@ The easiest way to start Kubernetes at home !!! 👶
 | Infrastructure | Use case       | OS             |
 | :------------- | :------------- | :------------- |
 | `Laptops`, `IoT Devices` | For developer use, Low powered devices | **Linux** |
+
 **Notes:** x86 & ARM, Linux Native.
 
 (In progress...)
@@ -47,8 +49,8 @@ The easiest way to start Kubernetes at home !!! 👶
 | Infrastructure | Use case       | OS             |
 | :------------- | :------------- | :------------- |
 | `Laptops`, `Workstations` | For developer use | **Linux**, **MAC**, **Windows** |
-**Notes:** Multinode, Docker dependent (It runs VM for MAC and Windows).
 
+**Notes:** Multinode, Docker dependent (It runs VM for MAC and Windows).
 
 (In progress...)
 
@@ -57,6 +59,7 @@ The easiest way to start Kubernetes at home !!! 👶
 | Infrastructure | Use case       | OS             |
 | :------------- | :------------- | :------------- |
 | `Laptops` | For developer use, | **Linux** |
+
 **Notes:** Addons (ie: DNS, Prometheus ...), Linux Native.
 
 (In progress...)
@@ -66,6 +69,7 @@ The easiest way to start Kubernetes at home !!! 👶
 | Infrastructure | Use case       | OS             |
 | :------------- | :------------- | :------------- |
 | `Laptops`, `Workstations`, `Edge/Micro Cloud`, `IoT Devices` | Opinionated Kubernetes, Small to medium clusters, CI/CD pipelines | **Linux** |
+
 **Notes:** Multinode, Addons (ie: DNS, Prometheus ...), x86 & ARM, Linux Native.
 
 Install MicroK8s on Ubuntu Linux
