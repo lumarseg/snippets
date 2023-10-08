@@ -6,19 +6,51 @@ Kubernetes Fundamentals - 101
 
 ## Installation
 
-Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.com/kubernetes/install)
+Alternatives to running Kubernetes in a local environment.
 
-### Docker + Kuberbetes + WSL2
+- Docker Desktop (Docker + Kubernetes + WSL2)
+- K3s (The lightest Kubernetes, for ARM platform)
+- Kind ()
+- Minikube
+- MicroK8s
 
-The easiest way to start Kubernetes at home !!! 🤓
+Production / Cloud hosted.
 
-1. Install Docker Destop for Windows
-2. Select WSL2 instead of HyperV. WSL integrations requires select WSL distro in Settings / Resources / WSL integration.
-3. Enable Kubernetes in Settings / Kubernetes
+- AWS EKS
+
+---
+
+### Docker Desktop (Docker + Kubernetes + WSL2)
+
+| Infrastructure | Use case       | Platform       |
+| :------------- | :------------- | :------------- |
+| `Laptops`, `Workstations` | Start learning, developers | **Linux**, **MAC**, **Windows** |
+
+The easiest way to start Kubernetes at home !!! 👶
+
+1. Install Docker Destop for Windows.
+2. Select WSL2 instead of HyperV. WSL integrations requires: select WSL distro (Settings / Resources / WSL integration).
+3. Enable Kubernetes (Settings / Kubernetes).
+
+### K3s
+
+(In progress...)
+
+### Kind
+
+(In progress...)
+
+### Minikube
+
+(In progress...)
 
 ### MicroK8s (Ubuntu)
 
-1. Install MicroK8s on Ubuntu Linux
+| Infrastructure | Use case       | Platform       |
+| :------------- | :------------- | :------------- |
+| `Laptops`, `Workstations`, `Edge/Micro Cloud`, `IoT Devices` | Opinionated Kubernetes, Small to medium clusters, CI/CD pipelines | **Linux** |
+
+Install MicroK8s on Ubuntu Linux
 
 ```bash
   sudo snap install microk8s --classic
@@ -28,36 +60,46 @@ The easiest way to start Kubernetes at home !!! 🤓
   newgrp microk8s
 ```
 
-2. Check the status while Kubernetes starts
+Check the status while Kubernetes starts
 
 ```bash
   microk8s status --wait-ready
 ```
 
-3. Turn on the services you want
+Turn on the services you want
 
 ```bash
   microk8s enable dashboard dns registry istio
 ```
 
-4. Start using Kubernetes
+Start using Kubernetes
 
 ```bash
   microk8s kubectl get all --all-namespaces
 ```
 
-5. Access the Kubernetes dashboard
+Access the Kubernetes dashboard
 
 ```bash
   microk8s dashboard-proxy
 ```
 
-6. Start and stop Kubernetes to save battery
+Start and stop Kubernetes to save battery
 
 ```bash
   microk8s start
   microk8s stop
 ```
+
+Usefull information available at: [Canonical Install Kubernetes](https://ubuntu.com/kubernetes/install)
+
+### AWS EKS
+
+| Infrastructure | Use case       | Platform       |
+| :------------- | :------------- | :------------- |
+| `Public Cloud` | Traffic peaks | **Linux** |
+
+(In progress...)
 
 ---
 
