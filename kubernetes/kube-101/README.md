@@ -75,11 +75,17 @@ The easiest way to start Kubernetes at home !!! 👶
 Install MicroK8s on Ubuntu Linux
 
 ```bash
+  sudo rm ~/.kube -rf
   sudo snap install microk8s --classic
   sudo mkdir ~/.kube
   sudo usermod -a -G microk8s $USER
   sudo chown -R $USER ~/.kube
   newgrp microk8s
+```
+
+Add Alias (optional)
+```bash
+  alias kubectl='microk8s kubectl'
 ```
 
 Check the status while Kubernetes starts
