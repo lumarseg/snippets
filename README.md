@@ -1,5 +1,6 @@
-# COURSES
-Welcome to my personal Software Development Courses repository on GitHub! This repository is a collection of documents, work guides, summaries, workshop notes, and code examples from various courses that I have taken in the past.
+# Snippet Repository
+
+Welcome to my Snippet Repository on GitHub! This repository is a collection of documents, work guides, summaries, workshop notes, and code examples from various courses that I have taken in the past.
 
 ## Content
 
