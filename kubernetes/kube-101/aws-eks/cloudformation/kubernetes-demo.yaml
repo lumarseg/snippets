@@ -9,49 +9,105 @@ Parameters:
   KubernetesVersion:
     Type: String
     Default: "1.28"
-    Description: Versión de Kubernetes para el clúster EKS
+    Description: Kubernetes version for the EKS cluster
+  VPCCIDR:
+    Description: CIDR Block for the EKS cluster.
+    Type: String
+    Default: 10.0.0.0/20
+    AllowedValues:
+      - 10.0.0.0/20
+  SubnetAParam:
+    Description: Subnet A
+    Type: String
+    Default: 10.0.1.0/24
+    AllowedValues:
+      - 10.0.1.0/24
+  SubnetBParam:
+    Description: Subnet B
+    Type: String
+    Default: 10.0.2.0/24
+    AllowedValues:
+      - 10.0.2.0/24
+  SubnetCParam:
+    Description: Subnet C
+    Type: String
+    Default: 10.0.3.0/24
+    AllowedValues:
+      - 10.0.3.0/24
 
 Resources:
   VPC:
     Type: AWS::EC2::VPC
     Properties:
-      CidrBlock: "192.168.0.0/16"
-
+      CidrBlock: !Ref VPCCIDR
   SubnetA:
     Type: AWS::EC2::Subnet
+    DependsOn: VPC
     Properties:
       VpcId: !Ref VPC
       AvailabilityZone: us-east-1a
-      CidrBlock: "192.168.1.0/24"
-
+      CidrBlock: !Ref SubnetAParam
   SubnetB:
     Type: AWS::EC2::Subnet
+    DependsOn: VPC
     Properties:
       VpcId: !Ref VPC
       AvailabilityZone: us-east-1b
-      CidrBlock: "192.168.2.0/24"
-
+      CidrBlock: !Ref SubnetBParam
   SubnetC:
     Type: AWS::EC2::Subnet
+    DependsOn: VPC
     Properties:
       VpcId: !Ref VPC
       AvailabilityZone: us-east-1c
-      CidrBlock: "192.168.3.0/24"
-
+      CidrBlock: !Ref SubnetCParam
   InternetGateway:
     Type: AWS::EC2::InternetGateway
-
+    DependsOn: VPC
   AttachGateway:
     Type: AWS::EC2::VPCGatewayAttachment
+    DependsOn:
+      - VPC
+      - InternetGateway
     Properties:
       VpcId: !Ref VPC
       InternetGatewayId: !Ref InternetGateway
+  SecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    DependsOn: VPC
+    Properties:
+      GroupDescription: Security group for the EKS cluster
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: "22"
+          ToPort: "22"
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: "-1"
+          FromPort: "0"
+          ToPort: "65535"
+          CidrIp: 0.0.0.0/0
 
   EKSCluster:
     Type: AWS::EKS::Cluster
+    DependsOn:
+      - VPC
+      - SecurityGroup
+      - SubnetA
+      - SubnetB
+      - SubnetC
     Properties:
       Name: !Ref ClusterName
       Version: !Ref KubernetesVersion
+      RoleArn: arn:aws:iam::255786703579:role/MyEKSRole
+      ResourcesVpcConfig:
+        SubnetIds:
+          - Ref: SubnetA
+          - Ref: SubnetB
+          - Ref: SubnetC
+        SecurityGroupIds:
+          - Ref: SecurityGroup
 
   NodeInstanceRole:
     Type: AWS::IAM::Role
@@ -68,7 +124,6 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
-
   NodeGroup:
     Type: AWS::EKS::Nodegroup
     Properties:
