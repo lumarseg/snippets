@@ -1,0 +1,19 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": [
+				"eks:DeleteCluster",
+				"eks:DescribeNodegroup",
+				"eks:DeleteNodegroup",
+				"eks:TagResource",
+				"eks:DescribeCluster",
+				"eks:CreateNodegroup",
+				"eks:CreateCluster"
+			],
+			"Resource": "*"
+		}
+	]
+}

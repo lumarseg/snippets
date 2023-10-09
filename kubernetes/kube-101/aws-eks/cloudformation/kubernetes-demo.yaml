@@ -88,7 +88,6 @@ Resources:
           FromPort: "0"
           ToPort: "65535"
           CidrIp: 0.0.0.0/0
-
   EKSCluster:
     Type: AWS::EKS::Cluster
     DependsOn:
@@ -108,7 +107,6 @@ Resources:
           - Ref: SubnetC
         SecurityGroupIds:
           - Ref: SecurityGroup
-
   NodeInstanceRole:
     Type: AWS::IAM::Role
     Properties:
@@ -124,6 +122,7 @@ Resources:
         - arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
         - arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy
         - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+
   NodeGroup:
     Type: AWS::EKS::Nodegroup
     Properties:
