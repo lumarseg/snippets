@@ -1,0 +1,13 @@
+---
+- name: Update Repos.
+  hosts: cool_servers
+  become: yes
+  become_user: root
+  tasks:
+    - name: Run 'shutdown now' in Fedora's Distribution
+      command: dnf check-update
+      when: ansible_distribution == 'Fedora'
+    
+    - name: Run 'shutdown now' in Ubuntu's Distribution
+      command: apt update
+      when: ansible_distribution == 'Ubuntu'
